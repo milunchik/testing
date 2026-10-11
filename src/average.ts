@@ -1,9 +1,3 @@
-/**
- * Обчислює середнє арифметичне масиву чисел.
- * @param numbers - Масив чисел
- * @returns Середнє арифметичне значення
- * @throws {Error} Якщо масив порожній або містить недійсні числа
- */
 export function calculateAverage(numbers: number[]): number {
   if (!Array.isArray(numbers) || numbers.length === 0) {
     throw new Error('EMPTY_ARRAY');
