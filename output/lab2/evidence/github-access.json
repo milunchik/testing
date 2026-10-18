@@ -1,0 +1,27 @@
+{
+  "https_credentials_available": true,
+  "credential_probe_exit": 0,
+  "authenticated_user": "milunchik",
+  "repository": {
+    "html_url": "https://github.com/milunchik/testing",
+    "default_branch": "main",
+    "private": true,
+    "permissions": {
+      "admin": true,
+      "maintain": true,
+      "push": true,
+      "triage": true,
+      "pull": true
+    }
+  },
+  "pull_requests": [
+    {
+      "number": 1,
+      "html_url": "https://github.com/milunchik/testing/pull/1",
+      "state": "open",
+      "head": "feature/calculate-average",
+      "base": "main",
+      "author": "milunchik"
+    }
+  ]
+}

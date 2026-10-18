@@ -1,0 +1,36 @@
+
+> testing@1.0.0 coverage
+> vitest run --coverage && npm run coverage:installment
+
+[?25l
+[1m[30m[46m RUN [49m[39m[22m [36mv5.0.3 [39m[90m/Users/mila/WebstormProjects/unik/testing[39m
+      [2mCoverage enabled with [22m[33mv8[39m
+
+
+[2m Test Files [22m [1m[32m4 passed[39m[22m[90m (4)[39m
+[2m      Tests [22m [1m[32m146 passed[39m[22m[90m (146)[39m
+[2m   Start at [22m 00:16:16
+[2m   Duration [22m 91ms[2m (transform 48%, worker 25%, import 18%, tests 10%)[22m
+
+[34m % [39m[2mCoverage report from [22m[33mv8[39m
+No files with missing coverage.
+3 files fully covered.
+
+=============================== Coverage summary ===============================
+[32;1mStatements   : 100% ( 62/62 )[0m
+[32;1mBranches     : 100% ( 36/36 )[0m
+[32;1mFunctions    : 100% ( 12/12 )[0m
+[32;1mLines        : 100% ( 57/57 )[0m
+================================================================================
+[?25h
+> testing@1.0.0 coverage:installment
+> node scripts/check-installment-coverage.mjs
+
+{
+  "function": "calcInstallment",
+  "start": 98,
+  "end": 128,
+  "covered": 8,
+  "total": 8,
+  "percent": 100
+}

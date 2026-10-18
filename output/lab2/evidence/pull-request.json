@@ -1,0 +1,9 @@
+{
+  "number": 2,
+  "html_url": "https://github.com/milunchik/testing/pull/2",
+  "state": "open",
+  "draft": false,
+  "head": "feature/lab2-vitest-installment",
+  "base": "feature/calculate-average",
+  "head_sha": "25fcb2080128cb52a4c9efb701fc729102f71c46"
+}

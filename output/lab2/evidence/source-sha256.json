@@ -1,0 +1,11 @@
+{
+  "src/order.ts": "01c15bc9fd064aea4dfabe3aebe4ac43d59603e0344d617fc086f8afbc498421",
+  "tests/order.test.ts": "1a866c875ec49a9429fcb694012506460183f867428595e8e399abe566f5f704",
+  "tests/order-example.test.ts": "bbdf377126208d7acb9e25141f1a955ac032ea82982f2b89e1a991f1219c8dbd",
+  "tests/average.test.ts": "e69636d59b8f10369c0a2cfce664a759d92e3e4a1ab6ef7dd97678e17e1929ab",
+  "tests/temperature.test.ts": "a5f1d3fd1c2558ee88272a37fb728e5260dd9523f5bc0212682cdb1491c7b3a0",
+  "scripts/check-installment-coverage.mjs": "2756473dc62bc53d47d0b2d6fa683d7434a0532b60a6b284d077806232da8a78",
+  "scripts/run-order-experiment.mjs": "4fac6f7ebd32a1277522d27ee33c56997abd594af385cb595ebb0dc36ee9ccc4",
+  "vitest.config.ts": "5edf02267fb379e16f61194e8b3c43ae8db876d31f8a2529de8fdaf0d164d149",
+  "package.json": "a5b70da3e22b88e7f8967bb894d0c1f106fab98a244fdc35bb916e1a2a4077dc"
+}

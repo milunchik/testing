@@ -1,0 +1,33 @@
+$ git remote -v
+origin	git@github.com:milunchik/testing.git (fetch)
+origin	git@github.com:milunchik/testing.git (push)
+
+$ git branch -vv
+  feature/calculate-average       f655e47 [origin/feature/calculate-average] feat:add-new-functionality
+* feature/lab2-vitest-installment 25fcb20 feat: complete lab 2 order example and required coverage experiment
+  main                            8dd6ec0 [origin/main] Lab 1: setup TypeScript and Vitest environment
+
+$ git log -2 --format=%H%n%s
+25fcb2080128cb52a4c9efb701fc729102f71c46
+feat: complete lab 2 order example and required coverage experiment
+7e03d07bdf0c79b4cf3e0838ebfae55b1c1d544f
+feat: add lab 2 installment tests and report
+
+$ git status --short
+ M README.md
+ M docs/lab2/README.md
+ M docs/lab2/report.md
+?? coverage_report.png
+?? generate_pdf_report.js
+?? output/
+?? report.html
+?? report/
+?? scripts/complete-lab2-report.py
+?? terminal_report.png
+?? "\320\227\320\262\321\226\321\202_\320\233\320\260\320\261\320\276\321\200\320\260\321\202\320\276\321\200\320\275\320\260_1_\320\222\320\260\321\200\321\226\320\260\320\275\321\202_12.pdf"
+?? "\320\233\320\260\320\261\320\276\321\200\320\260\321\202\320\276\321\200\320\275\320\260 2_\320\234\320\276\320\264\321\203\320\273\321\214\320\275\320\265 \321\202\320\265\321\201\321\202\321\203\320\262\320\260\320\275\320\275\321\217 Vitest.docx"
+?? "\320\233\320\260\320\261\320\276\321\200\320\260\321\202\320\276\321\200\320\275\320\260_\321\200\320\276\320\261\320\276\321\202\320\260_\342\204\2262_\321\202\320\265\321\201\321\202\321\203\320\262\320\260\320\275\320\275\321\217.docx"
+?? "\320\233\320\260\320\261\320\276\321\200\320\260\321\202\320\276\321\200\320\275\320\260_\321\200\320\276\320\261\320\276\321\202\320\260_\342\204\2262_\321\202\320\265\321\201\321\202\321\203\320\262\320\260\320\275\320\275\321\217_\321\204\321\226\320\275\320\260\320\273\321\214\320\275\320\260.docx"
+?? "\320\233\320\260\320\261\320\276\321\200\320\260\321\202\320\276\321\200\320\275\320\260_\321\200\320\276\320\261\320\276\321\202\320\260_\342\204\2262_\321\202\320\265\321\201\321\202\321\203\320\262\320\260\320\275\320\275\321\217_\321\204\321\226\320\275\320\260\320\273\321\214\320\275\320\260.pdf"
+
+GitHub authorization and PR verification: see github-access.json and pull-request.json. SSH failed; authenticated HTTPS publication succeeded.
