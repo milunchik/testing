@@ -1,8 +1,0 @@
-{
-  "command": "npm run verify",
-  "exitCode": 0,
-  "passedTests": 91,
-  "failedTests": 0,
-  "temporaryExperimentTestPresent": false,
-  "lab1SourcesAndTestsUnchanged": true
-}

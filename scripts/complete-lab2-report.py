@@ -324,7 +324,7 @@ value.text = 'https://github.com/milunchik/testing'
 run.append(value)
 link.append(run)
 repository._p.append(link)
-p('Фактичний origin для fetch і push: git@github.com:milunchik/testing.git. Поточна гілка: feature/lab2-vitest-installment. Початковий HEAD: 7e03d07bdf0c79b4cf3e0838ebfae55b1c1d544f. Перевірену реалізацію та 54 нові тести опубліковано комітом 25fcb2080128cb52a4c9efb701fc729102f71c46; фінальні матеріали звіту додано окремим комітом тієї самої гілки.')
+p('Фактичний origin для fetch і push: git@github.com:milunchik/testing.git. Поточна гілка: feature/lab2-vitest-installment. Початковий HEAD: 7e03d07bdf0c79b4cf3e0838ebfae55b1c1d544f. Перевірену реалізацію та 54 нові тести опубліковано комітом 25fcb2080128cb52a4c9efb701fc729102f71c46; матеріали звіту зафіксовано локальним комітом 90ba7bbfc4899a8320be1c184d7dbc3bf3b88747. Публікацію останнього коміту не підтверджено. За останньою вказівкою користувачки подальші дії з GitHub припинено; остаточні DOCX і PDF збережено локально.')
 p('Перша перевірка SSH завершилася повідомленням «Permission denied (publickey)». Додаткова перевірка HTTPS підтвердила авторизацію облікового запису milunchik і право push. Гілку опубліковано через HTTPS без зміни origin; через GitHub API створено відкритий Pull Request №2.')
 pr = p('Pull Request: ')
 link = OxmlElement('w:hyperlink')
@@ -344,7 +344,7 @@ p('Базова гілка PR — feature/calculate-average: вона місти
 
 heading(9)
 p('Під час лабораторної роботи доповнено модуль розрахунку замовлення чотирма функціями показового прикладу відповідно до оригінальної методички та перевірено індивідуальну функцію calcInstallment для варіанта 12. Тестові дані дібрано за класами еквівалентності, межовими значеннями й некоректними входами; використано параметризовані тести, незалежні числові еталони та перевірки винятків. Усі 145 тестів пройшли, зокрема збережені тести попередньої лабораторної роботи. Покриття коду становить 100 % за чотирма метриками; окреме покриття гілок calcInstallment — 100 % (8/8). Перевірки ESLint, TypeScript і Prettier завершилися успішно.').paragraph_format.keep_together = True
-p('Експеримент із викликом calcOrderTotal без твердження тимчасово збільшив кількість тестів до 146, але не змінив покриття. Це підтвердило, що виконання коду не перевіряє правильність результату без змістовного твердження. Тимчасовий тест видалено, фінальний стан перевірено повторно. Звіт оновлено реальними доказами виконання, а зміни опубліковано в Pull Request №2. Рецензування однокурсника залишається незавершеним зовнішнім етапом і потребує доступу до його справжнього Pull Request.')
+p('Експеримент із викликом calcOrderTotal без твердження тимчасово збільшив кількість тестів до 146, але не змінив покриття. Це підтвердило, що виконання коду не перевіряє правильність результату без змістовного твердження. Тимчасовий тест видалено, фінальний стан перевірено повторно. Звіт оновлено реальними доказами виконання. Реалізацію раніше опубліковано в Pull Request №2; остаточні Word і PDF збережено локально. Подальші дії з GitHub припинено за вказівкою користувачки. Рецензування однокурсника залишається незавершеним зовнішнім етапом і потребує доступу до його справжнього Pull Request.')
 
 # Remove unused old image relations so stale screenshots do not survive in the package.
 used_ids = set(doc._element.xpath('//@r:embed'))
@@ -369,6 +369,8 @@ manifest = {
     'cover_paragraphs_preserved': 20,
     'peer_review': 'pending: no classmate PR provided',
     'pull_request': 'https://github.com/milunchik/testing/pull/2',
+    'github_actions': 'stopped at user request',
+    'final_report_publication': 'not verified: last push interrupted; final documents saved locally',
 }
 (EVIDENCE / 'report-manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n')
 print(json.dumps(manifest, ensure_ascii=False, indent=2))
