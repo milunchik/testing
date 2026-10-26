@@ -27,5 +27,7 @@ function assertValidInput({
 
 export function calcInsuranceCost(input: InsuranceInput): number {
   assertValidInput(input);
-  return YOUNG_VEHICLE_BASE_UAH;
+  if (input.vehicleAge <= 3) return YOUNG_VEHICLE_BASE_UAH;
+  if (input.vehicleAge <= 10) return 4000;
+  return 5000;
 }
