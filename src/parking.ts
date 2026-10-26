@@ -6,6 +6,7 @@ const EXTRA_HOUR_FEE = 20;
 const DAILY_CAP = 200;
 const NIGHT_RATE = 0.5;
 const WEEKEND_RATE = 0.8;
+const KOPECKS_PER_UAH = 100;
 
 export interface ParkingOptions {
   night?: boolean;
@@ -13,7 +14,7 @@ export interface ParkingOptions {
 }
 
 export function roundParkingAmount(amount: number): number {
-  return Math.round(amount * 100) / 100;
+  return Math.round(amount * KOPECKS_PER_UAH) / KOPECKS_PER_UAH;
 }
 
 function assertValidDuration(minutes: number): void {
@@ -35,7 +36,10 @@ function applyRates(fee: number, options: ParkingOptions): number {
   return fee;
 }
 
-export function calcParkingFee(minutes: number, options: ParkingOptions = {}): number {
+export function calcParkingFee(
+  minutes: number,
+  options: ParkingOptions = {},
+): number {
   assertValidDuration(minutes);
   return roundParkingAmount(applyRates(calcBaseFee(minutes), options));
 }
