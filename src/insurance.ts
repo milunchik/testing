@@ -62,14 +62,18 @@ function applyAccidentFreeDiscount(
   const scale = 10n ** BigInt(fraction.length - Number(exponent));
   const discount = BigInt(whole + fraction);
   const percentScale = BigInt(PERCENT_SCALE);
-  const numerator = BigInt(amount) * BigInt(KOPECKS_PER_UAH) * (percentScale * scale - discount);
+  const numerator =
+    BigInt(amount) *
+    BigInt(KOPECKS_PER_UAH) *
+    (percentScale * scale - discount);
   const denominator = percentScale * scale;
-  const cents = (2n * numerator + denominator) / (2n * denominator);
-  return Number(cents) / KOPECKS_PER_UAH;
+  return roundPremium(numerator, denominator);
 }
 
-function roundPremium(amount: number): number {
-  return Math.round(amount * KOPECKS_PER_UAH) / KOPECKS_PER_UAH;
+function roundPremium(numerator: bigint, denominator: bigint): number {
+  // Positive half-up; preserve the public discount's decimal representation.
+  const cents = (2n * numerator + denominator) / (2n * denominator);
+  return Number(cents) / KOPECKS_PER_UAH;
 }
 
 /** Educational pricing assumptions are documented in report/lab3/PLAN.md. */
@@ -79,9 +83,8 @@ export function calcInsuranceCost(input: InsuranceInput): number {
     calcBasePremium(input.vehicleAge),
     input.driverExperience,
   );
-  const discounted = applyAccidentFreeDiscount(
+  return applyAccidentFreeDiscount(
     surcharged,
     input.accidentFreeDiscountPercent ?? 0,
   );
-  return roundPremium(discounted);
 }

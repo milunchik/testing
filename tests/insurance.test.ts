@@ -1,15 +1,30 @@
 import { expect, it } from 'vitest';
 import { calcInsuranceCost } from '../src/insurance';
 
-it.each([[0.0074999, 2999.78], [0.0075, 2999.78], [0.0075001, 2999.77], [0.0345, 2998.97], [Number.MIN_VALUE, 3000]])(
-  'uses decimal half-up precision at discount %s', (accidentFreeDiscountPercent, expected) => {
+it.each([
+  [0.0074999, 2999.78],
+  [0.0075, 2999.78],
+  [0.0075001, 2999.77],
+  [0.0345, 2998.97],
+  [Number.MIN_VALUE, 3000],
+])(
+  'uses decimal half-up precision at discount %s',
+  (accidentFreeDiscountPercent, expected) => {
     // 0.0075% of 3000 is 0.225; 2999.775 rounds to 2999.78.
-    expect(calcInsuranceCost({ vehicleAge: 0, driverExperience: 3, accidentFreeDiscountPercent })).toBe(expected);
+    expect(
+      calcInsuranceCost({
+        vehicleAge: 0,
+        driverExperience: 3,
+        accidentFreeDiscountPercent,
+      }),
+    ).toBe(expected);
   },
 );
 
 it('accepts a small positive driving experience', () => {
-  expect(calcInsuranceCost({ vehicleAge: 0, driverExperience: 0.01 })).toBe(3750);
+  expect(calcInsuranceCost({ vehicleAge: 0, driverExperience: 0.01 })).toBe(
+    3750,
+  );
 });
 
 it.each([
