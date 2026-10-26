@@ -65,8 +65,9 @@ export function calcInsuranceCost(input: InsuranceInput): number {
     calcBasePremium(input.vehicleAge),
     input.driverExperience,
   );
-  return applyAccidentFreeDiscount(
+  const discounted = applyAccidentFreeDiscount(
     surcharged,
     input.accidentFreeDiscountPercent ?? 0,
   );
+  return Math.round(discounted * 100) / 100;
 }
