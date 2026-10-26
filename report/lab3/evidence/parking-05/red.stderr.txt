@@ -1,0 +1,61 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/parking.test.ts > daily cap 541 costs 200
+ FAIL  tests/parking.test.ts > daily cap 600 costs 200
+AssertionError: expected 210 to be 200 // Object.is equality
+
+- Expected
++ Received
+
+- 200
++ 210
+
+ ❯ tests/parking.test.ts:17:37
+     15| it.each([[539, 190], [540, 190], [541, 200], [600, 200], [1440, 200], …
+     16|   'daily cap %i costs %i', (minutes, expected) => {
+     17|     expect(calcParkingFee(minutes)).toBe(expected);
+       |                                     ^
+     18|   },
+     19| );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  tests/parking.test.ts > daily cap 1440 costs 200
+AssertionError: expected 490 to be 200 // Object.is equality
+
+- Expected
++ Received
+
+- 200
++ 490
+
+ ❯ tests/parking.test.ts:17:37
+     15| it.each([[539, 190], [540, 190], [541, 200], [600, 200], [1440, 200], …
+     16|   'daily cap %i costs %i', (minutes, expected) => {
+     17|     expect(calcParkingFee(minutes)).toBe(expected);
+       |                                     ^
+     18|   },
+     19| );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  tests/parking.test.ts > daily cap 1441 costs 200
+AssertionError: expected 510 to be 200 // Object.is equality
+
+- Expected
++ Received
+
+- 200
++ 510
+
+ ❯ tests/parking.test.ts:17:37
+     15| it.each([[539, 190], [540, 190], [541, 200], [600, 200], [1440, 200], …
+     16|   'daily cap %i costs %i', (minutes, expected) => {
+     17|     expect(calcParkingFee(minutes)).toBe(expected);
+       |                                     ^
+     18|   },
+     19| );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
