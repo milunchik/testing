@@ -37,5 +37,6 @@ function calcBasePremium(vehicleAge: number): number {
 
 export function calcInsuranceCost(input: InsuranceInput): number {
   assertValidInput(input);
-  return calcBasePremium(input.vehicleAge);
+  const base = calcBasePremium(input.vehicleAge);
+  return input.driverExperience < 3 ? base * 1.25 : base;
 }
