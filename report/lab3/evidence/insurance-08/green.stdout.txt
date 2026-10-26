@@ -1,0 +1,13 @@
+
+> testing@1.0.0 test
+> vitest run
+
+
+ RUN  v5.0.3 /Users/mila/WebstormProjects/unik/testing
+
+
+ Test Files  6 passed (6)
+      Tests  253 passed (253)
+   Start at  23:02:49
+   Duration  97ms (transform 54%, import 24%, tests 11%, worker 10%)
+

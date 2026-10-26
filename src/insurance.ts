@@ -57,7 +57,15 @@ function applyAccidentFreeDiscount(
     discountPercent,
     MAX_ACCIDENT_FREE_DISCOUNT_PERCENT,
   );
-  return amount * (1 - effectiveDiscount / PERCENT_SCALE);
+  const [coefficient, exponent = '0'] = effectiveDiscount.toString().split('e');
+  const [whole, fraction = ''] = coefficient.split('.');
+  const scale = 10n ** BigInt(fraction.length - Number(exponent));
+  const discount = BigInt(whole + fraction);
+  const percentScale = BigInt(PERCENT_SCALE);
+  const numerator = BigInt(amount) * BigInt(KOPECKS_PER_UAH) * (percentScale * scale - discount);
+  const denominator = percentScale * scale;
+  const cents = (2n * numerator + denominator) / (2n * denominator);
+  return Number(cents) / KOPECKS_PER_UAH;
 }
 
 function roundPremium(amount: number): number {
