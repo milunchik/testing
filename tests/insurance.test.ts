@@ -1,6 +1,17 @@
 import { expect, it } from 'vitest';
 import { calcInsuranceCost } from '../src/insurance';
 
+it.each([[29, 2130], [29.99, 2100.3], [30, 2100], [30.01, 2100], [31, 2100], [100, 2100], [Number.MAX_VALUE, 2100]])(
+  'discount cap boundary %s percent costs %s', (accidentFreeDiscountPercent, expected) => {
+    expect(calcInsuranceCost({ vehicleAge: 0, driverExperience: 3, accidentFreeDiscountPercent })).toBeCloseTo(expected, 8);
+  },
+);
+
+it('caps the discount for an old car driven by a novice', () => {
+  // 5000 + 1250 - 1875 = 4375, discount is on 6250, not on 5000.
+  expect(calcInsuranceCost({ vehicleAge: 11, driverExperience: 2, accidentFreeDiscountPercent: 31 })).toBe(4375);
+});
+
 it.each([
   [0, 3000],
   [0.01, 2999.7],
