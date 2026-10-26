@@ -5,6 +5,7 @@ export const MIDDLE_VEHICLE_BASE_UAH = 4000;
 export const OLD_VEHICLE_BASE_UAH = 5000;
 export const EXPERIENCED_DRIVER_FROM_YEARS = 3;
 export const NOVICE_SURCHARGE_RATE = 0.25;
+export const PERCENT_SCALE = 100;
 
 export interface InsuranceInput {
   vehicleAge: number;
@@ -46,11 +47,21 @@ function applyExperienceSurcharge(
     : base;
 }
 
+function applyAccidentFreeDiscount(
+  amount: number,
+  discountPercent: number,
+): number {
+  return amount * (1 - discountPercent / PERCENT_SCALE);
+}
+
 export function calcInsuranceCost(input: InsuranceInput): number {
   assertValidInput(input);
   const surcharged = applyExperienceSurcharge(
     calcBasePremium(input.vehicleAge),
     input.driverExperience,
   );
-  return surcharged * (1 - (input.accidentFreeDiscountPercent ?? 0) / 100);
+  return applyAccidentFreeDiscount(
+    surcharged,
+    input.accidentFreeDiscountPercent ?? 0,
+  );
 }
