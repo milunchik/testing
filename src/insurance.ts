@@ -1,3 +1,5 @@
+export const YOUNG_VEHICLE_BASE_UAH = 3000;
+
 export interface InsuranceInput {
   vehicleAge: number;
   driverExperience: number;
@@ -25,5 +27,5 @@ function assertValidInput({
 
 export function calcInsuranceCost(input: InsuranceInput): number {
   assertValidInput(input);
-  return 3000;
+  return YOUNG_VEHICLE_BASE_UAH;
 }
