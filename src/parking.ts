@@ -1,4 +1,6 @@
 const INVALID_DURATION = 'INVALID_DURATION';
+const FREE_MINUTES = 15;
+const FIRST_HOUR_FEE = 30;
 
 function assertValidDuration(minutes: number): void {
   if (!Number.isInteger(minutes) || minutes < 0) {
@@ -8,6 +10,6 @@ function assertValidDuration(minutes: number): void {
 
 export function calcParkingFee(minutes: number): number {
   assertValidDuration(minutes);
-  if (minutes <= 15) return 0;
-  return 30;
+  if (minutes <= FREE_MINUTES) return 0;
+  return FIRST_HOUR_FEE;
 }
