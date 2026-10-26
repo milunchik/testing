@@ -1,0 +1,13 @@
+{
+  "module": "insurance",
+  "cycle": "01",
+  "phase": "refactor",
+  "command": "npm test",
+  "started": "2026-10-26T20:57:49.664Z",
+  "finished": "2026-10-26T20:57:49.964Z",
+  "exitCode": 0,
+  "reason": "202 passed",
+  "parent": "558d84e45029e07180f2f40b5997120954517f0d",
+  "stdout": "refactor.stdout.txt",
+  "stderr": "refactor.stderr.txt"
+}
