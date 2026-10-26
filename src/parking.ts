@@ -5,6 +5,7 @@ const MINUTES_PER_HOUR = 60;
 const EXTRA_HOUR_FEE = 20;
 const DAILY_CAP = 200;
 const NIGHT_RATE = 0.5;
+const WEEKEND_RATE = 0.8;
 
 export interface ParkingOptions {
   night?: boolean;
@@ -26,7 +27,7 @@ function calcBaseFee(minutes: number): number {
 
 function applyRates(fee: number, options: ParkingOptions): number {
   if (options.night) fee *= NIGHT_RATE;
-  if (options.weekend) fee *= 0.8;
+  if (options.weekend) fee *= WEEKEND_RATE;
   return fee;
 }
 
