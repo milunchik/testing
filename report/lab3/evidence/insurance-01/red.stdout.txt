@@ -1,0 +1,14 @@
+
+> testing@1.0.0 test
+> vitest run tests/insurance.test.ts
+
+
+ RUN  v5.0.3 /Users/mila/WebstormProjects/unik/testing
+
+ ❯ tests/insurance.test.ts (0 test)
+
+ Test Files  1 failed (1)
+      Tests  no tests
+   Start at  22:57:26
+   Duration  55ms (worker 98%, environment 2%)
+
