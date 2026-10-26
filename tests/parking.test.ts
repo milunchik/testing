@@ -12,6 +12,17 @@ it.each([0, 1, 14, 15])('first 15 minutes are free: %i', (minutes) => {
   expect(calcParkingFee(minutes)).toBe(0);
 });
 
+it.each([
+  { minutes: 600, options: { weekend: true }, expected: 160 },
+  { minutes: 600, options: { night: true, weekend: true }, expected: 80 },
+  { minutes: 45, options: { night: true, weekend: true }, expected: 12 },
+  { minutes: 121, options: { night: true, weekend: true }, expected: 28 },
+  { minutes: 0, options: { weekend: true }, expected: 0 },
+  { minutes: 16, options: { night: false, weekend: false }, expected: 30 },
+])('weekend $minutes $options costs $expected', ({ minutes, options, expected }) => {
+  expect(calcParkingFee(minutes, options)).toBe(expected);
+});
+
 it.each([[0, 0], [15, 0], [16, 15], [60, 15], [121, 35], [600, 100]])(
   'night rate %i costs %i', (minutes, expected) => {
     expect(calcParkingFee(minutes, { night: true })).toBe(expected);

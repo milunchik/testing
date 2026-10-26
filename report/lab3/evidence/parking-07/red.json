@@ -1,0 +1,13 @@
+{
+  "module": "parking",
+  "cycle": "07",
+  "phase": "red",
+  "command": "npm test -- tests/parking.test.ts",
+  "started": "2026-10-26T20:56:53.774Z",
+  "finished": "2026-10-26T20:56:54.054Z",
+  "exitCode": 1,
+  "reason": "to be 160|to be 80",
+  "parent": "9dcb104c1cbd57ed879627def1ded16061a49837",
+  "stdout": "red.stdout.txt",
+  "stderr": "red.stderr.txt"
+}

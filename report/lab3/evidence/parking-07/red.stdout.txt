@@ -1,0 +1,18 @@
+
+> testing@1.0.0 test
+> vitest run tests/parking.test.ts
+
+
+ RUN  v5.0.3 /Users/mila/WebstormProjects/unik/testing
+
+ ❯ tests/parking.test.ts (36 tests | 4 failed) 6ms
+   × weekend 600 { weekend: true } costs 160 2ms
+   × weekend 600 { night: true, weekend: true } costs 80 0ms
+   × weekend 45 { night: true, weekend: true } costs 12 0ms
+   × weekend 121 { night: true, weekend: true } costs 28 0ms
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 32 passed (36)
+   Start at  22:56:53
+   Duration  71ms (transform 43%, tests 25%, import 24%, worker 8%)
+
