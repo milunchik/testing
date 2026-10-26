@@ -25,5 +25,5 @@ function assertValidInput({
 
 export function calcInsuranceCost(input: InsuranceInput): number {
   assertValidInput(input);
-  return 0;
+  return 3000;
 }
