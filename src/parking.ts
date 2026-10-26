@@ -4,6 +4,7 @@ const FIRST_HOUR_FEE = 30;
 const MINUTES_PER_HOUR = 60;
 const EXTRA_HOUR_FEE = 20;
 const DAILY_CAP = 200;
+const NIGHT_RATE = 0.5;
 
 export interface ParkingOptions {
   night?: boolean;
@@ -23,9 +24,12 @@ function calcBaseFee(minutes: number): number {
   return Math.min(FIRST_HOUR_FEE + extraHours * EXTRA_HOUR_FEE, DAILY_CAP);
 }
 
+function applyRates(fee: number, options: ParkingOptions): number {
+  if (options.night) fee *= NIGHT_RATE;
+  return fee;
+}
+
 export function calcParkingFee(minutes: number, options: ParkingOptions = {}): number {
   assertValidDuration(minutes);
-  let fee = calcBaseFee(minutes);
-  if (options.night) fee /= 2;
-  return fee;
+  return applyRates(calcBaseFee(minutes), options);
 }
