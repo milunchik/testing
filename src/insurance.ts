@@ -6,6 +6,7 @@ export const OLD_VEHICLE_BASE_UAH = 5000;
 export const EXPERIENCED_DRIVER_FROM_YEARS = 3;
 export const NOVICE_SURCHARGE_RATE = 0.25;
 export const PERCENT_SCALE = 100;
+export const MAX_ACCIDENT_FREE_DISCOUNT_PERCENT = 30;
 
 export interface InsuranceInput {
   vehicleAge: number;
@@ -51,7 +52,11 @@ function applyAccidentFreeDiscount(
   amount: number,
   discountPercent: number,
 ): number {
-  return amount * (1 - Math.min(discountPercent, 30) / PERCENT_SCALE);
+  const effectiveDiscount = Math.min(
+    discountPercent,
+    MAX_ACCIDENT_FREE_DISCOUNT_PERCENT,
+  );
+  return amount * (1 - effectiveDiscount / PERCENT_SCALE);
 }
 
 export function calcInsuranceCost(input: InsuranceInput): number {
