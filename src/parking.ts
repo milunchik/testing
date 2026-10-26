@@ -26,6 +26,7 @@ function calcBaseFee(minutes: number): number {
 
 function applyRates(fee: number, options: ParkingOptions): number {
   if (options.night) fee *= NIGHT_RATE;
+  if (options.weekend) fee *= 0.8;
   return fee;
 }
 
