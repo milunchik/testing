@@ -8,5 +8,6 @@ function assertValidDuration(minutes: number): void {
 
 export function calcParkingFee(minutes: number): number {
   assertValidDuration(minutes);
-  return 0;
+  if (minutes <= 15) return 0;
+  return 30;
 }
