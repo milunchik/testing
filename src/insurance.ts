@@ -51,7 +51,7 @@ function applyAccidentFreeDiscount(
   amount: number,
   discountPercent: number,
 ): number {
-  return amount * (1 - discountPercent / PERCENT_SCALE);
+  return amount * (1 - Math.min(discountPercent, 30) / PERCENT_SCALE);
 }
 
 export function calcInsuranceCost(input: InsuranceInput): number {

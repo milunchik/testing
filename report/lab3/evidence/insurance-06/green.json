@@ -1,0 +1,13 @@
+{
+  "module": "insurance",
+  "cycle": "06",
+  "phase": "green",
+  "command": "npm test",
+  "started": "2026-10-26T21:00:14.551Z",
+  "finished": "2026-10-26T21:00:14.857Z",
+  "exitCode": 0,
+  "reason": "235 passed",
+  "parent": "bdb20a6b355802cf2abb33bc6994683398d2ab93",
+  "stdout": "green.stdout.txt",
+  "stderr": "green.stderr.txt"
+}
