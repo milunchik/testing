@@ -1,0 +1,44 @@
+<!doctype html><meta charset="utf-8"><title>insurance-02 RED</title><style>body{margin:24px;color:#111;background:white;font:16px Arial}h1{font-size:22px}p{line-height:1.5}pre{font:15px/1.4 monospace;white-space:pre-wrap;overflow-wrap:anywhere;border:1px solid #777;padding:16px}</style><h1>insurance-02 RED</h1><p>Execution-log viewer — original captured process output, not a terminal emulator.</p><p>$ npm test -- tests/insurance.test.ts | exit 1 | 2026-10-26T20:57:53.451Z | stdout followed by stderr</p><pre>&#10;
+&gt; testing@1.0.0 test
+&gt; vitest run tests/insurance.test.ts
+
+
+ RUN  v5.0.3 /Users/mila/WebstormProjects/unik/testing
+
+ ❯ tests/insurance.test.ts (21 tests | 4 failed) 4ms
+   × base cost for a young vehicle aged 0 2ms
+   × base cost for a young vehicle aged 1 0ms
+   × base cost for a young vehicle aged 2 0ms
+   × base cost for a young vehicle aged 3 0ms
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 17 passed (21)
+   Start at  22:57:53
+   Duration  67ms (transform 45%, tests 24%, import 22%, worker 10%)
+
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/insurance.test.ts &gt; base cost for a young vehicle aged 0
+ FAIL  tests/insurance.test.ts &gt; base cost for a young vehicle aged 1
+ FAIL  tests/insurance.test.ts &gt; base cost for a young vehicle aged 2
+ FAIL  tests/insurance.test.ts &gt; base cost for a young vehicle aged 3
+AssertionError: expected +0 to be 3000 // Object.is equality
+
+- Expected
++ Received
+
+- 3000
++ 0
+
+ ❯ tests/insurance.test.ts:5:66
+      3|
+      4| it.each([0, 1, 2, 3])('base cost for a young vehicle aged %i', (vehicl…
+      5|   expect(calcInsuranceCost({ vehicleAge, driverExperience: 3 })).toBe(…
+       |                                                                  ^
+      6| });
+      7|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+</pre>

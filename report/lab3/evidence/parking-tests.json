@@ -1,0 +1,8 @@
+{
+  "command": "npm test -- tests/parking.test.ts",
+  "started": "2026-10-26T21:03:57.118Z",
+  "finished": "2026-10-26T21:03:57.387Z",
+  "exitCode": 0,
+  "stdout": "parking-tests.stdout.txt",
+  "stderr": "parking-tests.stderr.txt"
+}

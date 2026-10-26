@@ -1,0 +1,80 @@
+<!doctype html><meta charset="utf-8"><title>parking-05 RED</title><style>body{margin:24px;color:#111;background:white;font:16px Arial}h1{font-size:22px}p{line-height:1.5}pre{font:15px/1.4 monospace;white-space:pre-wrap;overflow-wrap:anywhere;border:1px solid #777;padding:16px}</style><h1>parking-05 RED</h1><p>Execution-log viewer — original captured process output, not a terminal emulator.</p><p>$ npm test -- tests/parking.test.ts | exit 1 | 2026-10-26T20:55:55.547Z | stdout followed by stderr</p><pre>&#10;
+&gt; testing@1.0.0 test
+&gt; vitest run tests/parking.test.ts
+
+
+ RUN  v5.0.3 /Users/mila/WebstormProjects/unik/testing
+
+ ❯ tests/parking.test.ts (24 tests | 4 failed) 4ms
+   × daily cap 541 costs 200 2ms
+   × daily cap 600 costs 200 0ms
+   × daily cap 1440 costs 200 0ms
+   × daily cap 1441 costs 200 0ms
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 20 passed (24)
+   Start at  22:55:55
+   Duration  67ms (transform 47%, tests 22%, import 21%, worker 9%)
+
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/parking.test.ts &gt; daily cap 541 costs 200
+ FAIL  tests/parking.test.ts &gt; daily cap 600 costs 200
+AssertionError: expected 210 to be 200 // Object.is equality
+
+- Expected
++ Received
+
+- 200
++ 210
+
+ ❯ tests/parking.test.ts:17:37
+     15| it.each([[539, 190], [540, 190], [541, 200], [600, 200], [1440, 200], …
+     16|   'daily cap %i costs %i', (minutes, expected) =&gt; {
+     17|     expect(calcParkingFee(minutes)).toBe(expected);
+       |                                     ^
+     18|   },
+     19| );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  tests/parking.test.ts &gt; daily cap 1440 costs 200
+AssertionError: expected 490 to be 200 // Object.is equality
+
+- Expected
++ Received
+
+- 200
++ 490
+
+ ❯ tests/parking.test.ts:17:37
+     15| it.each([[539, 190], [540, 190], [541, 200], [600, 200], [1440, 200], …
+     16|   'daily cap %i costs %i', (minutes, expected) =&gt; {
+     17|     expect(calcParkingFee(minutes)).toBe(expected);
+       |                                     ^
+     18|   },
+     19| );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  tests/parking.test.ts &gt; daily cap 1441 costs 200
+AssertionError: expected 510 to be 200 // Object.is equality
+
+- Expected
++ Received
+
+- 200
++ 510
+
+ ❯ tests/parking.test.ts:17:37
+     15| it.each([[539, 190], [540, 190], [541, 200], [600, 200], [1440, 200], …
+     16|   'daily cap %i costs %i', (minutes, expected) =&gt; {
+     17|     expect(calcParkingFee(minutes)).toBe(expected);
+       |                                     ^
+     18|   },
+     19| );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+</pre>

@@ -1,0 +1,56 @@
+<!doctype html><meta charset="utf-8"><title>git-history</title><style>body{margin:24px;color:#111;background:white;font:16px Arial}h1{font-size:22px}p{line-height:1.5}pre{font:15px/1.4 monospace;white-space:pre-wrap;overflow-wrap:anywhere;border:1px solid #777;padding:16px}</style><h1>git-history</h1><p>Execution-log viewer — original captured process output, not a terminal emulator.</p><p>$ git log --oneline | exit 0 | 2026-10-26T21:04:44.681Z</p><pre>dcd4409 refactor: insurance 08 isolate rational rounding and remove redundant binary rounding
+daecb80 green: insurance 08 calculate final cents from exact decimal discount
+665dd92 red: insurance 08 regress binary rounding at exact decimal half-kopecks
+e779156 refactor: insurance 07 isolate rounding in the final pricing pipeline
+cdb501e green: insurance 07 round the final discounted premium to kopecks
+b84689e red: insurance 07 round final money with adjacent half-kopeck and interaction cases
+898352b refactor: insurance 06 name capped discount and its policy limit
+ca70449 green: insurance 06 limit effective discount before applying it
+bdb20a6 red: insurance 06 cap accident-free discount at thirty percent
+9540017 refactor: insurance 05 separate percentage discount responsibility
+2efe14c green: insurance 05 discount after experience surcharge
+010d357 red: insurance 05 apply accident-free discount to surcharged amount
+f6587b0 refactor: insurance 04 extract experience rule and named surcharge policy
+154bf30 green: insurance 04 apply twenty-five percent novice surcharge
+14ca255 red: insurance 04 surcharge for experience strictly below three years
+00fc60b refactor: insurance 03 extract base pricing and name all age policy values
+5434792 green: insurance 03 add the two missing age prices
+a56f0ca red: insurance 03 additional age categories and adjacent boundaries
+ffbcb76 refactor: insurance 02 name the educational base-price assumption
+0365113 green: insurance 02 return only the required initial base price
+04f36be red: insurance 02 initial age category has base price three thousand
+54daef5 refactor: insurance 01 extract validation boundary from pricing
+558d84e green: insurance 01 validate fields with distinct error codes
+3960548 red: insurance 01 reject invalid numeric inputs before implementation
+684df52 refactor: parking 08 name monetary precision and format final responsibilities
+e676de8 green: parking 08 round final fee to two decimals
+4d952f3 red: parking 08 direct decimal rounding contract
+c146b6d refactor: parking 07 name weekend multiplier
+b058950 green: parking 07 apply further twenty percent discount
+84faebc red: parking 07 weekend discount after night tariff
+9dcb104 refactor: parking 06 separate rate application from base fee
+2b91254 green: parking 06 apply night rate after base cap
+a9f4b87 red: parking 06 halve the capped fee at night
+0692c42 refactor: parking 05 extract capped base calculation
+5b45d54 green: parking 05 apply the daily cap
+7be2a89 red: parking 05 cap the calculated base at two hundred
+bd1636b refactor: parking 04 name hour duration and additional fee
+132132c green: parking 04 add twenty for each started extra hour
+f610f1f red: parking 04 charge each started hour beyond the first
+409ac8c refactor: parking 03 replace tariff literals with named constants
+ed71d00 green: parking 03 charge thirty after free interval
+a2edd78 red: parking 03 first paid hour and its boundaries
+3dd6f93 refactor: parking 02 separate validation from fee calculation
+a8d4761 green: parking 02 validate duration and return zero
+f9e5334 red: parking 02 free parking for zero through fifteen minutes
+08f887f refactor: parking 01 name duration error contract
+20b15d1 green: parking 01 minimal rejection makes invalid duration tests pass
+f114db2 red: parking 01 reject invalid duration before module exists
+3219dc2 feat: refactor
+90ba7bb docs: complete existing lab 2 report with verified screenshots and PR link
+25fcb20 feat: complete lab 2 order example and required coverage experiment
+7e03d07 feat: add lab 2 installment tests and report
+f655e47 feat:add-new-functionality
+163f60c feat: implement calculateAverage function with comprehensive tests
+8dd6ec0 Lab 1: setup TypeScript and Vitest environment
+</pre>

@@ -1,0 +1,8 @@
+{
+  "command": "npm run coverage",
+  "started": "2026-10-26T21:03:36.087Z",
+  "finished": "2026-10-26T21:03:36.566Z",
+  "exitCode": 0,
+  "stdout": "coverage.stdout.txt",
+  "stderr": "coverage.stderr.txt"
+}

@@ -1,0 +1,7 @@
+{
+  "repository": "https://github.com/milunchik/testing",
+  "authenticated": true,
+  "login": "milunchik",
+  "branch": "feature/lab3-tdd-insurance",
+  "base": "feature/lab2-vitest-installment"
+}

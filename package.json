@@ -6,12 +6,14 @@
   "scripts": {
     "test": "vitest run",
     "test:watch": "vitest",
-    "coverage": "vitest run --coverage && npm run coverage:installment",
+    "coverage": "vitest run --coverage && npm run coverage:installment && npm run coverage:insurance",
     "lint": "eslint .",
     "format": "prettier --write .",
     "typecheck": "tsc --noEmit",
     "format:check": "prettier --check src tests scripts docs/**/*.md README.md package.json package-lock.json tsconfig.json vitest.config.ts eslint.config.mjs .prettierrc",
     "coverage:installment": "node scripts/check-installment-coverage.mjs",
+    "coverage:insurance": "node scripts/check-insurance-coverage.mjs",
+    "evidence:lab3": "node scripts/lab3-capture.mjs",
     "experiment:installment": "node scripts/run-installment-experiment.mjs",
     "experiment:order": "node scripts/run-order-experiment.mjs",
     "verify": "npm test && npm run lint && npm run typecheck && npm run format:check && npm run coverage"

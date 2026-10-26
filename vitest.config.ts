@@ -13,6 +13,9 @@ export default defineConfig({
         lines: 80,
         branches: 80,
         functions: 100,
+        'src/insurance.ts': {
+          branches: 90,
+        },
       },
     },
   },
