@@ -12,6 +12,10 @@ export interface ParkingOptions {
   weekend?: boolean;
 }
 
+export function roundParkingAmount(amount: number): number {
+  return Math.round(amount * 100) / 100;
+}
+
 function assertValidDuration(minutes: number): void {
   if (!Number.isInteger(minutes) || minutes < 0) {
     throw new Error(INVALID_DURATION);
@@ -33,5 +37,5 @@ function applyRates(fee: number, options: ParkingOptions): number {
 
 export function calcParkingFee(minutes: number, options: ParkingOptions = {}): number {
   assertValidDuration(minutes);
-  return applyRates(calcBaseFee(minutes), options);
+  return roundParkingAmount(applyRates(calcBaseFee(minutes), options));
 }
