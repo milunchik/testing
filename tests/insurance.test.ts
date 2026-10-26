@@ -1,11 +1,17 @@
 import { expect, it } from 'vitest';
 import { calcInsuranceCost } from '../src/insurance';
 
-it.each([[2, 3000], [3, 3000], [4, 4000], [9, 4000], [10, 4000], [11, 5000], [Number.MAX_SAFE_INTEGER, 5000]])(
-  'age category boundary %i costs %i', (vehicleAge, expected) => {
-    expect(calcInsuranceCost({ vehicleAge, driverExperience: 3 })).toBe(expected);
-  },
-);
+it.each([
+  [2, 3000],
+  [3, 3000],
+  [4, 4000],
+  [9, 4000],
+  [10, 4000],
+  [11, 5000],
+  [Number.MAX_SAFE_INTEGER, 5000],
+])('age category boundary %i costs %i', (vehicleAge, expected) => {
+  expect(calcInsuranceCost({ vehicleAge, driverExperience: 3 })).toBe(expected);
+});
 
 it.each([0, 1, 2, 3])('base cost for a young vehicle aged %i', (vehicleAge) => {
   expect(calcInsuranceCost({ vehicleAge, driverExperience: 3 })).toBe(3000);

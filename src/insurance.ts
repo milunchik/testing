@@ -1,4 +1,8 @@
 export const YOUNG_VEHICLE_BASE_UAH = 3000;
+export const YOUNG_VEHICLE_MAX_AGE = 3;
+export const MIDDLE_VEHICLE_MAX_AGE = 10;
+export const MIDDLE_VEHICLE_BASE_UAH = 4000;
+export const OLD_VEHICLE_BASE_UAH = 5000;
 
 export interface InsuranceInput {
   vehicleAge: number;
@@ -25,9 +29,13 @@ function assertValidInput({
   }
 }
 
+function calcBasePremium(vehicleAge: number): number {
+  if (vehicleAge <= YOUNG_VEHICLE_MAX_AGE) return YOUNG_VEHICLE_BASE_UAH;
+  if (vehicleAge <= MIDDLE_VEHICLE_MAX_AGE) return MIDDLE_VEHICLE_BASE_UAH;
+  return OLD_VEHICLE_BASE_UAH;
+}
+
 export function calcInsuranceCost(input: InsuranceInput): number {
   assertValidInput(input);
-  if (input.vehicleAge <= 3) return YOUNG_VEHICLE_BASE_UAH;
-  if (input.vehicleAge <= 10) return 4000;
-  return 5000;
+  return calcBasePremium(input.vehicleAge);
 }
