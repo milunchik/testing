@@ -1,6 +1,10 @@
 import { expect, it } from 'vitest';
 import { calcInsuranceCost } from '../src/insurance';
 
+it.each([0, 1, 2, 3])('base cost for a young vehicle aged %i', (vehicleAge) => {
+  expect(calcInsuranceCost({ vehicleAge, driverExperience: 3 })).toBe(3000);
+});
+
 it.each([
   -1,
   -0.01,
