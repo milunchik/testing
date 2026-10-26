@@ -1,6 +1,17 @@
 import { expect, it } from 'vitest';
 import { calcInsuranceCost } from '../src/insurance';
 
+it.each([[0, 3000], [0.01, 2999.7], [1, 2970], [10, 2700], [20, 2400]])(
+  'accident-free discount %s percent costs %s', (accidentFreeDiscountPercent, expected) => {
+    expect(calcInsuranceCost({ vehicleAge: 0, driverExperience: 3, accidentFreeDiscountPercent })).toBe(expected);
+  },
+);
+
+it('discounts the surcharged amount for an inexperienced driver', () => {
+  // Independently: 3000 + 750 surcharge - 750 discount = 3000 UAH.
+  expect(calcInsuranceCost({ vehicleAge: 0, driverExperience: 2, accidentFreeDiscountPercent: 20 })).toBe(3000);
+});
+
 it.each([
   [0, 3750],
   [2, 3750],
