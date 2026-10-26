@@ -12,6 +12,12 @@ it.each([0, 1, 14, 15])('first 15 minutes are free: %i', (minutes) => {
   expect(calcParkingFee(minutes)).toBe(0);
 });
 
+it.each([[0, 0], [15, 0], [16, 15], [60, 15], [121, 35], [600, 100]])(
+  'night rate %i costs %i', (minutes, expected) => {
+    expect(calcParkingFee(minutes, { night: true })).toBe(expected);
+  },
+);
+
 it.each([[539, 190], [540, 190], [541, 200], [600, 200], [1440, 200], [1441, 200]])(
   'daily cap %i costs %i', (minutes, expected) => {
     expect(calcParkingFee(minutes)).toBe(expected);
