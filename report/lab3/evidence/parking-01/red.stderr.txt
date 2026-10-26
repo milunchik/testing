@@ -1,0 +1,14 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/parking.test.ts [ tests/parking.test.ts ]
+Error: Cannot find module '../src/parking' imported from /Users/mila/WebstormProjects/unik/testing/tests/parking.test.ts
+ ❯ tests/parking.test.ts:2:1
+      1| import { expect, it } from 'vitest';
+      2| import { calcParkingFee } from '../src/parking';
+       | ^
+      3|
+      4| it.each([-1, -60, 10.5, NaN, Infinity, -Infinity])(
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
