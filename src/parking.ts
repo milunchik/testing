@@ -5,6 +5,11 @@ const MINUTES_PER_HOUR = 60;
 const EXTRA_HOUR_FEE = 20;
 const DAILY_CAP = 200;
 
+export interface ParkingOptions {
+  night?: boolean;
+  weekend?: boolean;
+}
+
 function assertValidDuration(minutes: number): void {
   if (!Number.isInteger(minutes) || minutes < 0) {
     throw new Error(INVALID_DURATION);
@@ -18,7 +23,9 @@ function calcBaseFee(minutes: number): number {
   return Math.min(FIRST_HOUR_FEE + extraHours * EXTRA_HOUR_FEE, DAILY_CAP);
 }
 
-export function calcParkingFee(minutes: number): number {
+export function calcParkingFee(minutes: number, options: ParkingOptions = {}): number {
   assertValidDuration(minutes);
-  return calcBaseFee(minutes);
+  let fee = calcBaseFee(minutes);
+  if (options.night) fee /= 2;
+  return fee;
 }
