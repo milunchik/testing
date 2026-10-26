@@ -3,6 +3,8 @@ export const YOUNG_VEHICLE_MAX_AGE = 3;
 export const MIDDLE_VEHICLE_MAX_AGE = 10;
 export const MIDDLE_VEHICLE_BASE_UAH = 4000;
 export const OLD_VEHICLE_BASE_UAH = 5000;
+export const EXPERIENCED_DRIVER_FROM_YEARS = 3;
+export const NOVICE_SURCHARGE_RATE = 0.25;
 
 export interface InsuranceInput {
   vehicleAge: number;
@@ -35,8 +37,19 @@ function calcBasePremium(vehicleAge: number): number {
   return OLD_VEHICLE_BASE_UAH;
 }
 
+function applyExperienceSurcharge(
+  base: number,
+  driverExperience: number,
+): number {
+  return driverExperience < EXPERIENCED_DRIVER_FROM_YEARS
+    ? base * (1 + NOVICE_SURCHARGE_RATE)
+    : base;
+}
+
 export function calcInsuranceCost(input: InsuranceInput): number {
   assertValidInput(input);
-  const base = calcBasePremium(input.vehicleAge);
-  return input.driverExperience < 3 ? base * 1.25 : base;
+  return applyExperienceSurcharge(
+    calcBasePremium(input.vehicleAge),
+    input.driverExperience,
+  );
 }
