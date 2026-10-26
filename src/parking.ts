@@ -15,5 +15,5 @@ export function calcParkingFee(minutes: number): number {
   if (minutes <= FREE_MINUTES) return 0;
   if (minutes <= MINUTES_PER_HOUR) return FIRST_HOUR_FEE;
   const extraHours = Math.ceil((minutes - MINUTES_PER_HOUR) / MINUTES_PER_HOUR);
-  return FIRST_HOUR_FEE + extraHours * EXTRA_HOUR_FEE;
+  return Math.min(FIRST_HOUR_FEE + extraHours * EXTRA_HOUR_FEE, 200);
 }
