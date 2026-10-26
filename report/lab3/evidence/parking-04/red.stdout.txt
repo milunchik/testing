@@ -1,0 +1,19 @@
+
+> testing@1.0.0 test
+> vitest run tests/parking.test.ts
+
+
+ RUN  v5.0.3 /Users/mila/WebstormProjects/unik/testing
+
+ ❯ tests/parking.test.ts (18 tests | 5 failed) 4ms
+   × started extra hours 61 cost 50 2ms
+   × started extra hours 119 cost 50 0ms
+   × started extra hours 120 cost 50 0ms
+   × started extra hours 121 cost 70 0ms
+   × started extra hours 180 cost 70 0ms
+
+ Test Files  1 failed (1)
+      Tests  5 failed | 13 passed (18)
+   Start at  22:55:38
+   Duration  65ms (transform 44%, tests 24%, import 22%, worker 11%)
+
