@@ -7,6 +7,7 @@ export const EXPERIENCED_DRIVER_FROM_YEARS = 3;
 export const NOVICE_SURCHARGE_RATE = 0.25;
 export const PERCENT_SCALE = 100;
 export const MAX_ACCIDENT_FREE_DISCOUNT_PERCENT = 30;
+export const KOPECKS_PER_UAH = 100;
 
 export interface InsuranceInput {
   vehicleAge: number;
@@ -59,6 +60,11 @@ function applyAccidentFreeDiscount(
   return amount * (1 - effectiveDiscount / PERCENT_SCALE);
 }
 
+function roundPremium(amount: number): number {
+  return Math.round(amount * KOPECKS_PER_UAH) / KOPECKS_PER_UAH;
+}
+
+/** Educational pricing assumptions are documented in report/lab3/PLAN.md. */
 export function calcInsuranceCost(input: InsuranceInput): number {
   assertValidInput(input);
   const surcharged = applyExperienceSurcharge(
@@ -69,5 +75,5 @@ export function calcInsuranceCost(input: InsuranceInput): number {
     surcharged,
     input.accidentFreeDiscountPercent ?? 0,
   );
-  return Math.round(discounted * 100) / 100;
+  return roundPremium(discounted);
 }
