@@ -1,5 +1,11 @@
 import { expect, it } from 'vitest';
-import { calcParkingFee } from '../src/parking';
+import { calcParkingFee, roundParkingAmount } from '../src/parking';
+
+it.each([[12.344, 12.34], [12.345, 12.35], [12.346, 12.35], [28, 28]])(
+  'rounds the final amount %s to %s', (amount, expected) => {
+    expect(roundParkingAmount(amount)).toBe(expected);
+  },
+);
 
 it.each([-1, -60, 10.5, NaN, Infinity, -Infinity])(
   'rejects invalid duration %s',

@@ -1,0 +1,18 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/parking.test.ts > rounds the final amount 12.344 to 12.34
+ FAIL  tests/parking.test.ts > rounds the final amount 12.345 to 12.35
+ FAIL  tests/parking.test.ts > rounds the final amount 12.346 to 12.35
+ FAIL  tests/parking.test.ts > rounds the final amount 28 to 28
+TypeError: roundParkingAmount is not a function
+ ❯ tests/parking.test.ts:6:12
+      4| it.each([[12.344, 12.34], [12.345, 12.35], [12.346, 12.35], [28, 28]])(
+      5|   'rounds the final amount %s to %s', (amount, expected) => {
+      6|     expect(roundParkingAmount(amount)).toBe(expected);
+       |            ^
+      7|   },
+      8| );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+

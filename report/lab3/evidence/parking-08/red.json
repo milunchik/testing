@@ -1,0 +1,13 @@
+{
+  "module": "parking",
+  "cycle": "08",
+  "phase": "red",
+  "command": "npm test -- tests/parking.test.ts",
+  "started": "2026-10-26T20:57:23.579Z",
+  "finished": "2026-10-26T20:57:23.864Z",
+  "exitCode": 1,
+  "reason": "roundParkingAmount.*not a function",
+  "parent": "c146b6d564089a834b4cd986f6ffab047e7ba637",
+  "stdout": "red.stdout.txt",
+  "stderr": "red.stderr.txt"
+}
