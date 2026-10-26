@@ -1,0 +1,18 @@
+
+> testing@1.0.0 test
+> vitest run tests/insurance.test.ts
+
+
+ RUN  v5.0.3 /Users/mila/WebstormProjects/unik/testing
+
+ ❯ tests/insurance.test.ts (62 tests | 4 failed) 5ms
+   × rounds only final premium 12.34549 3 to 2629.64 2ms
+   × rounds only final premium 12.3455 3 to 2629.64 0ms
+   × rounds only final premium 12.34551 3 to 2629.63 0ms
+   × rounds only final premium 1e-7 3 to 3000 0ms
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 58 passed (62)
+   Start at  23:00:16
+   Duration  69ms (transform 46%, import 23%, tests 23%, worker 8%)
+

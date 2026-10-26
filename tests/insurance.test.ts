@@ -2,6 +2,33 @@ import { expect, it } from 'vitest';
 import { calcInsuranceCost } from '../src/insurance';
 
 it.each([
+  { discount: 12.34549, experience: 3, expected: 2629.64 },
+  { discount: 12.3455, experience: 3, expected: 2629.64 },
+  { discount: 12.34551, experience: 3, expected: 2629.63 },
+  { discount: 12.3456, experience: 2, expected: 3287.04 },
+  { discount: 0.0000001, experience: 3, expected: 3000 },
+])('rounds only final premium $discount $experience to $expected', ({ discount, experience, expected }) => {
+  const result = calcInsuranceCost({ vehicleAge: 0, driverExperience: experience, accidentFreeDiscountPercent: discount });
+  expect(result).toBe(expected);
+  expect(result.toFixed(2)).toBe(expected.toFixed(2));
+});
+
+it.each([
+  { vehicleAge: 0, driverExperience: 3, expected: 2100 },
+  { vehicleAge: 0, driverExperience: 2, expected: 2625 },
+  { vehicleAge: 4, driverExperience: 3, expected: 2800 },
+  { vehicleAge: 4, driverExperience: 2, expected: 3500 },
+  { vehicleAge: 11, driverExperience: 3, expected: 3500 },
+  { vehicleAge: 11, driverExperience: 2, expected: 4375 },
+])('combines category and experience $vehicleAge $driverExperience', ({ expected, ...input }) => {
+  expect(calcInsuranceCost({ ...input, accidentFreeDiscountPercent: 30 })).toBe(expected);
+});
+
+it('throws a meaningful RangeError for invalid age', () => {
+  expect(() => calcInsuranceCost({ vehicleAge: -1, driverExperience: 3 })).toThrow(RangeError);
+});
+
+it.each([
   [29, 2130],
   [29.99, 2100.3],
   [30, 2100],
