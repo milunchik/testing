@@ -1,0 +1,16 @@
+
+> testing@1.0.0 test
+> vitest run tests/insurance.test.ts
+
+
+ RUN  v5.0.3 /Users/mila/WebstormProjects/unik/testing
+
+ ❯ tests/insurance.test.ts (68 tests | 2 failed) 5ms
+   × uses decimal half-up precision at discount 0.0075 2ms
+   × uses decimal half-up precision at discount 0.0345 0ms
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 66 passed (68)
+   Start at  23:02:48
+   Duration  68ms (transform 46%, tests 23%, import 22%, worker 8%)
+
