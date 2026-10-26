@@ -1,0 +1,13 @@
+{
+  "module": "insurance",
+  "cycle": "03",
+  "phase": "red",
+  "command": "npm test -- tests/insurance.test.ts",
+  "started": "2026-10-26T20:58:18.593Z",
+  "finished": "2026-10-26T20:58:18.873Z",
+  "exitCode": 1,
+  "reason": "expected 3000 to be 4000|expected 3000 to be 5000",
+  "parent": "ffbcb7659820195d5b2a926caf8f90bd9fc6b6ba",
+  "stdout": "red.stdout.txt",
+  "stderr": "red.stderr.txt"
+}

@@ -1,0 +1,19 @@
+
+> testing@1.0.0 test
+> vitest run tests/insurance.test.ts
+
+
+ RUN  v5.0.3 /Users/mila/WebstormProjects/unik/testing
+
+ ❯ tests/insurance.test.ts (28 tests | 5 failed) 6ms
+   × age category boundary 4 costs 4000 2ms
+   × age category boundary 9 costs 4000 0ms
+   × age category boundary 10 costs 4000 0ms
+   × age category boundary 11 costs 5000 0ms
+   × age category boundary 9007199254740991 costs 5000 0ms
+
+ Test Files  1 failed (1)
+      Tests  5 failed | 23 passed (28)
+   Start at  22:58:18
+   Duration  74ms (transform 42%, tests 28%, import 22%, worker 8%)
+
