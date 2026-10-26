@@ -1,0 +1,19 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/parking.test.ts > first 15 minutes are free: 0
+ FAIL  tests/parking.test.ts > first 15 minutes are free: 1
+ FAIL  tests/parking.test.ts > first 15 minutes are free: 14
+ FAIL  tests/parking.test.ts > first 15 minutes are free: 15
+Error: INVALID_DURATION
+ ❯ calcParkingFee src/parking.ts:4:9
+      2|
+      3| export function calcParkingFee(): number {
+      4|   throw new Error(INVALID_DURATION);
+       |         ^
+      5| }
+      6|
+ ❯ tests/parking.test.ts:12:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+

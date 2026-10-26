@@ -7,3 +7,7 @@ it.each([-1, -60, 10.5, NaN, Infinity, -Infinity])(
     expect(() => calcParkingFee(minutes)).toThrow('INVALID_DURATION');
   },
 );
+
+it.each([0, 1, 14, 15])('first 15 minutes are free: %i', (minutes) => {
+  expect(calcParkingFee(minutes)).toBe(0);
+});
