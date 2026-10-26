@@ -11,5 +11,7 @@ function assertValidDuration(minutes: number): void {
 export function calcParkingFee(minutes: number): number {
   assertValidDuration(minutes);
   if (minutes <= FREE_MINUTES) return 0;
-  return FIRST_HOUR_FEE;
+  if (minutes <= 60) return FIRST_HOUR_FEE;
+  const extraHours = Math.ceil((minutes - 60) / 60);
+  return FIRST_HOUR_FEE + extraHours * 20;
 }
