@@ -1,3 +1,4 @@
+6c43fb2 chore: retain Lab 3 TDD evidence and enforce insurance coverage
 dcd4409 refactor: insurance 08 isolate rational rounding and remove redundant binary rounding
 daecb80 green: insurance 08 calculate final cents from exact decimal discount
 665dd92 red: insurance 08 regress binary rounding at exact decimal half-kopecks

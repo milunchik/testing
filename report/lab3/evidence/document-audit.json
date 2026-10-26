@@ -1,0 +1,242 @@
+{
+  "pages": 37,
+  "allPagesRenderedAndVisuallyReviewed": true,
+  "fonts": [
+    "BAAAAA+TimesNewRomanPS-BoldMT",
+    "CAAAAA+TimesNewRomanPSMT"
+  ],
+  "fontSizePt": 14,
+  "requiredSections": 10,
+  "numberedTables": 9,
+  "numberedFigures": 14,
+  "completeListingLines": 413,
+  "screenshots": 67,
+  "pageChecks": [
+    {
+      "page": 1,
+      "textCharacters": 421,
+      "images": 0,
+      "a4": true
+    },
+    {
+      "page": 2,
+      "textCharacters": 1579,
+      "images": 0,
+      "a4": true
+    },
+    {
+      "page": 3,
+      "textCharacters": 1239,
+      "images": 0,
+      "a4": true
+    },
+    {
+      "page": 4,
+      "textCharacters": 1094,
+      "images": 0,
+      "a4": true
+    },
+    {
+      "page": 5,
+      "textCharacters": 1213,
+      "images": 0,
+      "a4": true
+    },
+    {
+      "page": 6,
+      "textCharacters": 926,
+      "images": 0,
+      "a4": true
+    },
+    {
+      "page": 7,
+      "textCharacters": 519,
+      "images": 1,
+      "a4": true
+    },
+    {
+      "page": 8,
+      "textCharacters": 563,
+      "images": 0,
+      "a4": true
+    },
+    {
+      "page": 9,
+      "textCharacters": 214,
+      "images": 1,
+      "a4": true
+    },
+    {
+      "page": 10,
+      "textCharacters": 780,
+      "images": 2,
+      "a4": true
+    },
+    {
+      "page": 11,
+      "textCharacters": 1282,
+      "images": 0,
+      "a4": true
+    },
+    {
+      "page": 12,
+      "textCharacters": 811,
+      "images": 0,
+      "a4": true
+    },
+    {
+      "page": 13,
+      "textCharacters": 741,
+      "images": 0,
+      "a4": true
+    },
+    {
+      "page": 14,
+      "textCharacters": 826,
+      "images": 0,
+      "a4": true
+    },
+    {
+      "page": 15,
+      "textCharacters": 732,
+      "images": 0,
+      "a4": true
+    },
+    {
+      "page": 16,
+      "textCharacters": 782,
+      "images": 0,
+      "a4": true
+    },
+    {
+      "page": 17,
+      "textCharacters": 891,
+      "images": 0,
+      "a4": true
+    },
+    {
+      "page": 18,
+      "textCharacters": 937,
+      "images": 0,
+      "a4": true
+    },
+    {
+      "page": 19,
+      "textCharacters": 667,
+      "images": 0,
+      "a4": true
+    },
+    {
+      "page": 20,
+      "textCharacters": 1039,
+      "images": 0,
+      "a4": true
+    },
+    {
+      "page": 21,
+      "textCharacters": 574,
+      "images": 0,
+      "a4": true
+    },
+    {
+      "page": 22,
+      "textCharacters": 548,
+      "images": 0,
+      "a4": true
+    },
+    {
+      "page": 23,
+      "textCharacters": 631,
+      "images": 0,
+      "a4": true
+    },
+    {
+      "page": 24,
+      "textCharacters": 732,
+      "images": 0,
+      "a4": true
+    },
+    {
+      "page": 25,
+      "textCharacters": 720,
+      "images": 0,
+      "a4": true
+    },
+    {
+      "page": 26,
+      "textCharacters": 740,
+      "images": 0,
+      "a4": true
+    },
+    {
+      "page": 27,
+      "textCharacters": 213,
+      "images": 1,
+      "a4": true
+    },
+    {
+      "page": 28,
+      "textCharacters": 452,
+      "images": 1,
+      "a4": true
+    },
+    {
+      "page": 29,
+      "textCharacters": 496,
+      "images": 1,
+      "a4": true
+    },
+    {
+      "page": 30,
+      "textCharacters": 322,
+      "images": 2,
+      "a4": true
+    },
+    {
+      "page": 31,
+      "textCharacters": 458,
+      "images": 2,
+      "a4": true
+    },
+    {
+      "page": 32,
+      "textCharacters": 827,
+      "images": 2,
+      "a4": true
+    },
+    {
+      "page": 33,
+      "textCharacters": 1406,
+      "images": 1,
+      "a4": true
+    },
+    {
+      "page": 34,
+      "textCharacters": 1643,
+      "images": 0,
+      "a4": true
+    },
+    {
+      "page": 35,
+      "textCharacters": 1745,
+      "images": 0,
+      "a4": true
+    },
+    {
+      "page": 36,
+      "textCharacters": 1448,
+      "images": 0,
+      "a4": true
+    },
+    {
+      "page": 37,
+      "textCharacters": 1760,
+      "images": 0,
+      "a4": true
+    }
+  ],
+  "sha256": {
+    "Лабораторна_робота_№3_TDD_Граб.docx": "80cbe67f3b2155b9684e16ccd657b7e140375be73d632218867bbcfbd89fbe05",
+    "Лабораторна_робота_№3_TDD_Граб.pdf": "5b065c06c4ff09c1c398c7f7d50aa6b8d7a576521b1f683a376ad282b703f71e"
+  }
+}

@@ -1,0 +1,78 @@
+
+> testing@1.0.0 verify
+> npm test && npm run lint && npm run typecheck && npm run format:check && npm run coverage
+
+
+> testing@1.0.0 test
+> vitest run
+
+
+ RUN  v5.0.3 /Users/mila/WebstormProjects/unik/testing
+
+
+ Test Files  6 passed (6)
+      Tests  253 passed (253)
+   Start at  23:11:38
+   Duration  94ms (transform 52%, import 24%, tests 12%, worker 11%)
+
+
+> testing@1.0.0 lint
+> eslint .
+
+
+> testing@1.0.0 typecheck
+> tsc --noEmit
+
+
+> testing@1.0.0 format:check
+> prettier --check src tests scripts docs/**/*.md README.md package.json package-lock.json tsconfig.json vitest.config.ts eslint.config.mjs .prettierrc
+
+Checking formatting...
+All matched files use Prettier code style!
+
+> testing@1.0.0 coverage
+> vitest run --coverage && npm run coverage:installment && npm run coverage:insurance
+
+
+ RUN  v5.0.3 /Users/mila/WebstormProjects/unik/testing
+      Coverage enabled with v8
+
+
+ Test Files  6 passed (6)
+      Tests  253 passed (253)
+   Start at  23:11:39
+   Duration  117ms (transform 42%, worker 27%, import 21%, tests 10%)
+
+ % Coverage report from v8
+No files with missing coverage.
+5 files fully covered.
+
+=============================== Coverage summary ===============================
+Statements   : 100% ( 123/123 )
+Branches     : 100% ( 72/72 )
+Functions    : 100% ( 23/23 )
+Lines        : 100% ( 112/112 )
+================================================================================
+
+> testing@1.0.0 coverage:installment
+> node scripts/check-installment-coverage.mjs
+
+{
+  "function": "calcInstallment",
+  "start": 98,
+  "end": 128,
+  "covered": 8,
+  "total": 8,
+  "percent": 100
+}
+
+> testing@1.0.0 coverage:insurance
+> node scripts/check-insurance-coverage.mjs
+
+{
+  "module": "src/insurance.ts",
+  "covered": 23,
+  "total": 23,
+  "percent": 100,
+  "threshold": 90
+}

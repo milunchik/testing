@@ -46,3 +46,4 @@ e779156 refactor: insurance 07 isolate rounding in the final pricing pipeline
 665dd92 red: insurance 08 regress binary rounding at exact decimal half-kopecks
 daecb80 green: insurance 08 calculate final cents from exact decimal discount
 dcd4409 refactor: insurance 08 isolate rational rounding and remove redundant binary rounding
+6c43fb2 chore: retain Lab 3 TDD evidence and enforce insurance coverage

@@ -62,7 +62,7 @@ try {
     const shown = await page.locator('pre').textContent();
     if (shown !== text)
       throw new Error(`Viewer changed source output: ${name}`);
-    await page.screenshot({ path: `${out}/${name}.png`, fullPage: true });
+    await page.locator('body').screenshot({ path: `${out}/${name}.png` });
     if (name === 'git-history') {
       await page.screenshot({ path: `${out}/git-history-head.png` });
     }
@@ -136,7 +136,20 @@ try {
       continue;
     }
     await page.goto(`${base}/coverage/${file}`);
-    await page.screenshot({ path: `${out}/${name}.png`, fullPage: true });
+    if (name === 'coverage-summary') {
+      const table = await page.locator('.coverage-summary').boundingBox();
+      await page.screenshot({
+        path: `${out}/${name}.png`,
+        clip: {
+          x: 0,
+          y: 0,
+          width: 1120,
+          height: Math.ceil(table.y + table.height + 24),
+        },
+      });
+    } else {
+      await page.screenshot({ path: `${out}/${name}.png`, fullPage: true });
+    }
     if (name === 'insurance-branch-coverage') {
       await page.screenshot({
         path: `${out}/insurance-branch-coverage-top.png`,

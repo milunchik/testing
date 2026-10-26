@@ -155,6 +155,7 @@ it.each([
   [9, 4000],
   [10, 4000],
   [11, 5000],
+  [Number.MAX_SAFE_INTEGER - 1, 5000],
   [Number.MAX_SAFE_INTEGER, 5000],
 ])('age category boundary %i costs %i', (vehicleAge, expected) => {
   expect(calcInsuranceCost({ vehicleAge, driverExperience: 3 })).toBe(expected);

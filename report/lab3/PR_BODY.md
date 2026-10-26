@@ -2,6 +2,6 @@ Lab 3 adds `calcParkingFee` and the Variant 12 insurance calculator while preser
 
 The history contains eight real parking cycles and eight real insurance cycles, each with separate `red:`, `green:` and `refactor:` commits. Exact command output, exit statuses and source/test snapshots accompany each stage. An additional insurance cycle fixes a demonstrated binary rounding regression at a 0.0075% discount.
 
-Validation: 253 tests pass (145 existing, 40 parking, 68 insurance); ESLint, TypeScript and Prettier pass. All coverage metrics are 100%; insurance branches are 23/23, with a required 90% gate. Playwright captures the original log viewer and actual HTML coverage pages. Ukrainian DOCX/PDF reports and their build script are included in the completed branch.
+Validation: 254 tests pass (145 existing, 40 parking, 69 insurance); ESLint, TypeScript and Prettier pass. All coverage metrics are 100%; insurance branches are 23/23, with a required 90% gate. Playwright captures the original log viewer and actual HTML coverage pages. Ukrainian DOCX/PDF reports and their build script are included in the completed branch. The final verification also adds an already-passing boundary case immediately below the maximum safe integer; this adds no production behavior and is not counted as another TDD cycle.
 
 Pricing assumptions are explicitly documented separately from the methodology. Peer review is marked pending because no peer repository has been supplied. The PR targets the Lab 2 feature branch to isolate Lab 3 changes; no merge is requested.
