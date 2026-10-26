@@ -1,0 +1,62 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/insurance.test.ts > experience boundary 0 costs 3750
+ FAIL  tests/insurance.test.ts > experience boundary 2 costs 3750
+ FAIL  tests/insurance.test.ts > experience boundary 2.99 costs 3750
+AssertionError: expected 3000 to be 3750 // Object.is equality
+
+- Expected
++ Received
+
+- 3750
++ 3000
+
+ ❯ tests/insurance.test.ts:6:68
+      4| it.each([[0, 3750], [2, 3750], [2.99, 3750], [3, 3000], [3.01, 3000], …
+      5|   'experience boundary %s costs %i', (driverExperience, expected) => {
+      6|     expect(calcInsuranceCost({ vehicleAge: 0, driverExperience })).toB…
+       |                                                                    ^
+      7|   },
+      8| );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  tests/insurance.test.ts > novice with vehicle age 4 costs 5000
+AssertionError: expected 4000 to be 5000 // Object.is equality
+
+- Expected
++ Received
+
+- 5000
++ 4000
+
+ ❯ tests/insurance.test.ts:11:66
+      9|
+     10| it.each([[4, 5000], [11, 6250]])('novice with vehicle age %i costs %i'…
+     11|   expect(calcInsuranceCost({ vehicleAge, driverExperience: 2 })).toBe(…
+       |                                                                  ^
+     12| });
+     13|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  tests/insurance.test.ts > novice with vehicle age 11 costs 6250
+AssertionError: expected 5000 to be 6250 // Object.is equality
+
+- Expected
++ Received
+
+- 6250
++ 5000
+
+ ❯ tests/insurance.test.ts:11:66
+      9|
+     10| it.each([[4, 5000], [11, 6250]])('novice with vehicle age %i costs %i'…
+     11|   expect(calcInsuranceCost({ vehicleAge, driverExperience: 2 })).toBe(…
+       |                                                                  ^
+     12| });
+     13|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
