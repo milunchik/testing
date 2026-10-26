@@ -48,8 +48,9 @@ function applyExperienceSurcharge(
 
 export function calcInsuranceCost(input: InsuranceInput): number {
   assertValidInput(input);
-  return applyExperienceSurcharge(
+  const surcharged = applyExperienceSurcharge(
     calcBasePremium(input.vehicleAge),
     input.driverExperience,
   );
+  return surcharged * (1 - (input.accidentFreeDiscountPercent ?? 0) / 100);
 }
