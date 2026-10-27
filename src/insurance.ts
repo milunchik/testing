@@ -76,7 +76,7 @@ function roundPremium(numerator: bigint, denominator: bigint): number {
   return Number(cents) / KOPECKS_PER_UAH;
 }
 
-/** Educational pricing assumptions are documented in report/lab3/PLAN.md. */
+/** Educational pricing assumptions are documented in docs/lab3/README.md. */
 export function calcInsuranceCost(input: InsuranceInput): number {
   assertValidInput(input);
   const surcharged = applyExperienceSurcharge(

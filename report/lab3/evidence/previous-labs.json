@@ -1,8 +1,0 @@
-{
-  "command": "npm test -- tests/average.test.ts tests/temperature.test.ts tests/order.test.ts tests/order-example.test.ts",
-  "started": "2026-10-26T21:08:02.664Z",
-  "finished": "2026-10-26T21:08:02.942Z",
-  "exitCode": 0,
-  "stdout": "previous-labs.stdout.txt",
-  "stderr": "previous-labs.stderr.txt"
-}

@@ -6,3 +6,10 @@ dist/
 *.log
 
 .idea/
+
+# Local report tooling and generated working materials
+/scripts/
+/report/**/evidence/
+/report/**/screenshots/
+/report/lab3/PLAN.md
+/report/lab3/PR_BODY.md

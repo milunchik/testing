@@ -1,8 +1,0 @@
-{
-  "command": "git log --oneline",
-  "started": "2026-10-26T21:08:02.962Z",
-  "finished": "2026-10-26T21:08:02.975Z",
-  "exitCode": 0,
-  "stdout": "git-history.stdout.txt",
-  "stderr": "git-history.stderr.txt"
-}

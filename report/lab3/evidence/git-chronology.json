@@ -1,8 +1,0 @@
-{
-  "command": "git log --reverse --oneline 3219dc2..HEAD",
-  "started": "2026-10-26T21:08:02.995Z",
-  "finished": "2026-10-26T21:08:03.006Z",
-  "exitCode": 0,
-  "stdout": "git-chronology.stdout.txt",
-  "stderr": "git-chronology.stderr.txt"
-}

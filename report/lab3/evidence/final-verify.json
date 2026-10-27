@@ -1,8 +1,0 @@
-{
-  "command": "npm run verify",
-  "started": "2026-10-26T21:11:38.228Z",
-  "finished": "2026-10-26T21:11:40.081Z",
-  "exitCode": 0,
-  "stdout": "final-verify.stdout.txt",
-  "stderr": "final-verify.stderr.txt"
-}

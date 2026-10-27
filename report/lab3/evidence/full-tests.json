@@ -1,8 +1,0 @@
-{
-  "command": "npm test",
-  "started": "2026-10-26T21:17:51.696Z",
-  "finished": "2026-10-26T21:17:51.987Z",
-  "exitCode": 0,
-  "stdout": "full-tests.stdout.txt",
-  "stderr": "full-tests.stderr.txt"
-}

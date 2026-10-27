@@ -1,8 +1,0 @@
-{
-  "command": "npm test -- tests/insurance.test.ts",
-  "started": "2026-10-26T21:17:51.407Z",
-  "finished": "2026-10-26T21:17:51.674Z",
-  "exitCode": 0,
-  "stdout": "insurance-tests.stdout.txt",
-  "stderr": "insurance-tests.stderr.txt"
-}

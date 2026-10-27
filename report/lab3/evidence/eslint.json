@@ -1,8 +1,0 @@
-{
-  "command": "npm run lint",
-  "started": "2026-10-26T21:03:58.008Z",
-  "finished": "2026-10-26T21:03:58.422Z",
-  "exitCode": 0,
-  "stdout": "eslint.stdout.txt",
-  "stderr": "eslint.stderr.txt"
-}

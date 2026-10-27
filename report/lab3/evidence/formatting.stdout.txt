@@ -1,6 +1,0 @@
-
-> testing@1.0.0 format:check
-> prettier --check src tests scripts docs/**/*.md README.md package.json package-lock.json tsconfig.json vitest.config.ts eslint.config.mjs .prettierrc
-
-Checking formatting...
-All matched files use Prettier code style!
