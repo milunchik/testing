@@ -1,0 +1,316 @@
+{
+  "info": {
+    "name": "Orders API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Laboratory 5: guided orders and Variant 12 SKU validation. Run against a fresh local server."
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    },
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "orderId",
+      "value": ""
+    },
+    {
+      "key": "validSkuOrderId",
+      "value": ""
+    },
+    {
+      "key": "orderSchema",
+      "value": "{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"format\":\"uuid\"},\"tier\":{\"type\":\"string\",\"enum\":[\"basic\",\"silver\",\"gold\"]},\"subtotal\":{\"type\":\"number\",\"minimum\":0},\"total\":{\"type\":\"number\",\"minimum\":0},\"createdAt\":{\"type\":\"string\",\"format\":\"date-time\"},\"items\":{\"type\":\"array\",\"minItems\":1,\"items\":{\"type\":\"object\",\"properties\":{\"sku\":{\"type\":\"string\",\"pattern\":\"^[A-Z]{3}-[0-9]{4}$\",\"minLength\":8,\"maxLength\":8},\"price\":{\"type\":\"number\",\"minimum\":0},\"qty\":{\"type\":\"integer\",\"minimum\":1}},\"required\":[\"sku\",\"price\",\"qty\"],\"additionalProperties\":false}}},\"required\":[\"id\",\"tier\",\"subtotal\",\"total\",\"createdAt\",\"items\"],\"additionalProperties\":false}"
+    }
+  ],
+  "item": [
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/auth/login",
+          "host": ["{{baseUrl}}"],
+          "path": ["auth", "login"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"bob@example.com\",\n  \"password\": \"Secret123\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('статус 200', () => pm.response.to.have.status(200));",
+              "pm.test('токен непорожній', () => pm.expect(pm.response.json().accessToken).to.be.a('string').and.not.empty);",
+              "pm.collectionVariables.set('token', pm.response.json().accessToken);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Create order",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/orders",
+          "host": ["{{baseUrl}}"],
+          "path": ["orders"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"items\": [\n    {\n      \"sku\": \"SKU-0001\",\n      \"price\": 500,\n      \"qty\": 1\n    }\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('статус 201', () => pm.response.to.have.status(201));",
+              "pm.test('сума 560 і підсумок 500', () => {",
+              "  pm.expect(pm.response.json().total).to.eql(560);",
+              "  pm.expect(pm.response.json().subtotal).to.eql(500);",
+              "});",
+              "pm.test('Location', () => pm.expect(pm.response.headers.get('Location')).to.eql('/orders/' + pm.response.json().id));",
+              "pm.test('Content-Type JSON', () => pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json'));",
+              "pm.test('публічна JSON Schema', () => pm.response.to.have.jsonSchema(JSON.parse(pm.collectionVariables.get('orderSchema'))));",
+              "pm.collectionVariables.set('orderId', pm.response.json().id);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Get order",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/orders/{{orderId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["orders", "{{orderId}}"]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('статус 200', () => pm.response.to.have.status(200));",
+              "pm.test('ідентифікатор і значення збережено', () => {",
+              "  const order = pm.response.json();",
+              "  pm.expect(order.id).to.eql(pm.collectionVariables.get('orderId'));",
+              "  pm.expect(order.total).to.eql(560);",
+              "  pm.expect(order.items).to.eql([{sku:'SKU-0001',price:500,qty:1}]);",
+              "});",
+              "pm.test('публічна JSON Schema', () => pm.response.to.have.jsonSchema(JSON.parse(pm.collectionVariables.get('orderSchema'))));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Valid SKU",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/orders",
+          "host": ["{{baseUrl}}"],
+          "path": ["orders"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"items\": [\n    {\n      \"sku\": \"ABC-1234\",\n      \"price\": 500,\n      \"qty\": 1\n    }\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('статус 201', () => pm.response.to.have.status(201));",
+              "pm.test('SKU і суми коректні', () => {",
+              "  pm.expect(pm.response.json().items[0].sku).to.eql('ABC-1234');",
+              "  pm.expect(pm.response.json().subtotal).to.eql(500);",
+              "  pm.expect(pm.response.json().total).to.eql(560);",
+              "});",
+              "pm.test('Location нового замовлення', () => pm.expect(pm.response.headers.get('Location')).to.eql('/orders/' + pm.response.json().id));",
+              "pm.test('публічна JSON Schema', () => pm.response.to.have.jsonSchema(JSON.parse(pm.collectionVariables.get('orderSchema'))));",
+              "pm.collectionVariables.set('validSkuOrderId', pm.response.json().id);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Get valid SKU",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/orders/{{validSkuOrderId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["orders", "{{validSkuOrderId}}"]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('статус 200', () => pm.response.to.have.status(200));",
+              "pm.test('валідний SKU збережено', () => {",
+              "  pm.expect(pm.response.json().id).to.eql(pm.collectionVariables.get('validSkuOrderId'));",
+              "  pm.expect(pm.response.json().items[0].sku).to.eql('ABC-1234');",
+              "});",
+              "pm.test('публічна JSON Schema', () => pm.response.to.have.jsonSchema(JSON.parse(pm.collectionVariables.get('orderSchema'))));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Invalid SKU",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/orders",
+          "host": ["{{baseUrl}}"],
+          "path": ["orders"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"items\": [\n    {\n      \"sku\": \"abc-1234\",\n      \"price\": 500,\n      \"qty\": 1\n    }\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('статус 400', () => pm.response.to.have.status(400));",
+              "pm.test('код INVALID_SKU', () => pm.expect(pm.response.json()).to.eql({code:'INVALID_SKU'}));",
+              "pm.test('немає Location', () => pm.expect(pm.response.headers.has('Location')).to.eql(false));",
+              "pm.test('ідентифікатор попереднього замовлення збережено', () => pm.expect(pm.collectionVariables.get('orderId')).to.be.a('string').and.not.empty);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "List after invalid SKU",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/orders",
+          "host": ["{{baseUrl}}"],
+          "path": ["orders"]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('статус 200', () => pm.response.to.have.status(200));",
+              "pm.test('хибний запит не створив замовлення', () => {",
+              "  const orders = pm.response.json();",
+              "  pm.expect(orders).to.have.lengthOf(2);",
+              "  pm.expect(orders.map(order => order.id)).to.have.members([",
+              "    pm.collectionVariables.get('orderId'), pm.collectionVariables.get('validSkuOrderId')",
+              "  ]);",
+              "});",
+              "pm.test('схема списку', () => pm.response.to.have.jsonSchema({type:'array',items:JSON.parse(pm.collectionVariables.get('orderSchema'))}));"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
