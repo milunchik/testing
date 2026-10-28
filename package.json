@@ -8,23 +8,34 @@
     "test:watch": "vitest",
     "coverage": "vitest run --coverage",
     "lint": "eslint .",
-    "format": "prettier --write src tests docs/**/*.md README.md package.json package-lock.json tsconfig.json vitest.config.ts eslint.config.mjs .prettierrc",
+    "format": "prettier --write src tests docs/**/*.md README.md package.json package-lock.json tsconfig.json vitest.config.ts eslint.config.mjs .prettierrc postman/orders.postman_collection.json",
     "typecheck": "tsc --noEmit",
-    "format:check": "prettier --check src tests docs/**/*.md README.md package.json package-lock.json tsconfig.json vitest.config.ts eslint.config.mjs .prettierrc",
-    "verify": "npm test && npm run lint && npm run typecheck && npm run format:check && npm run coverage"
+    "format:check": "prettier --check src tests docs/**/*.md README.md package.json package-lock.json tsconfig.json vitest.config.ts eslint.config.mjs .prettierrc postman/orders.postman_collection.json",
+    "verify": "npm test && npm run lint && npm run typecheck && npm run format:check && npm run coverage",
+    "start": "tsx src/server.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@types/express": "^5.0.6",
     "@types/node": "^26.6.5",
+    "@types/supertest": "^7.2.1",
     "@vitest/coverage-v8": "^5.0.3",
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1",
     "eslint": "^10.12.0",
     "msw": "^2.15.0",
+    "newman": "^6.2.3",
     "prettier": "^3.9.10",
+    "supertest": "^7.3.1",
+    "tsx": "^4.23.15",
     "typescript": "~5.8.2",
     "typescript-eslint": "^8.71.1",
     "vitest": "^5.0.3"
+  },
+  "dependencies": {
+    "express": "^5.3.0"
   }
 }
